@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Naša Sobna Vrata – proizvodnja i ugradnja sobnih vrata od medijapana. Najkvalitetnija Rener farba i montaža širom Srbije.">
+  <meta name="keywords" content="sobna vrata, medijapan, vrata po meri, Rener farba, bela vrata, furnirana vrata, vrata sa staklom">
+  <meta name="author" content="Naša Sobna Vrata">
+  <title>Naša Sobna Vrata</title>
+  <style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #2f2f2f;
+    color: #f0f0f0;
+  }
+  header {
+    background-color: #1f1f1f;
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  .header-left img { height: 60px; }
+  nav { display: flex; gap: 16px; }
+  nav a {
+    text-decoration: none;
+    color: #f0f0f0;
+    font-weight: bold;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: 0.3s;
+  }
+  nav a:hover { background:#1976d2; }
+  .header-right a img {
+    width: 36px; height: 36px;
+    margin-left: 10px;
+    transition: 0.3s;
+  }
+  .header-right a img:hover { transform: scale(1.1); }
+  .burger { display: none; font-size: 30px; cursor: pointer; color: #fff; }
+  .nav-links { display: flex; gap: 16px; }
+  .nav-links a { white-space: nowrap; }
+
+  .hero {
+    position: relative;
+    background: url('slike/slika11.png') no-repeat center center/cover;
+    height: 100vh;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    padding: 40px;
+    text-align: center;
+    color: #fff;
+  }
+  .hero::before {
+    content: ""; position: absolute;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.4);
+  }
+  .hero h1, .hero p, .hero a { position: relative; z-index: 2; }
+  .hero h1 { font-size: 48px; margin-bottom: 15px; text-shadow: 1px 1px 3px #000; }
+  .hero p { font-size: 18px; max-width: 600px; text-shadow: 1px 1px 2px #000; }
+
+  .btn {
+    background: #1976d2; color: #fff;
+    padding: 12px 24px; border: none;
+    font-size: 18px; margin-top: 20px;
+    cursor: pointer; text-decoration: none;
+    border-radius: 8px; transition: 0.3s;
+    display: inline-block;
+  }
+  .btn:hover { background: #0d47a1; }
+
+  section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
+  h2, h3 { color: #fff; text-align: center; margin-bottom: 30px; }
+
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 20px;
+  }
+  .product-item {
+    text-align: center;
+    background: #3a3a3a;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: 0.3s;
+  }
+  .product-item:hover { transform: translateY(-5px); }
+  .product-item img { width: 100%; border-radius: 8px; }
+  .product-title { font-size: 22px; color: #1976d2; margin-bottom: 10px; }
+
+  .extra-models { display: none; margin-top: 30px; text-align:center; }
+  .extra-models img {
+    width: 200px; margin: 10px;
+    border: 1px solid #555; border-radius: 8px;
+    cursor: pointer;
+  }
+
+  footer {
+    background: #1f1f1f; color: #f0f0f0;
+    text-align: center; padding: 20px;
+    border-top: 1px solid #444;
+  }
+
+  .lightbox {
+    display: none; position: fixed; z-index: 9999;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    justify-content: center; align-items: center;
+  }
+  .lightbox img {
+    max-width: 90%; max-height: 90%;
+    border: 3px solid #fff; border-radius: 10px;
+  }
+   .hero {
+    position: relative;
+    background: url('slike/slika11.png') no-repeat center center/cover;
+    height: 100vh;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    padding: 40px;
+    text-align: center;
+    color: #fff;
+    transition: background-image 1s ease-in-out; /* ovo pravi prelaz */
+  }
+  .lightbox .prev, .lightbox .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  padding: 16px;
+}
+.lightbox .prev { left: 20px; }
+.lightbox .next { right: 20px; }
+.lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Responsive stilovi za telefone */
+@media (max-width: 768px) {
+  nav.nav-links {
+    display: none;
+    flex-direction: column;
+    background: #1f1f1f;
+    position: absolute;
+    top: 70px;
+    right: 10px;
+    width: 200px;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  nav.nav-links.active {
+    display: flex;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .products {
+    grid-template-columns: 1fr; /* jedan proizvod po redu */
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <a href="#pocetna"><img src="slike/0c47fc41-0f40-49c4-99db-0ee1f3bab1d8.png" alt="Logo"></a>
+  </div>
+  <div class="burger" onclick="toggleMenu()">☰</div>
+  <nav class="nav-links">
+    <a href="#pocetna">Početna</a>
+    <a href="#proizvodi">Proizvodi</a>
+    <a href="#o-nama">O nama</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+  <div class="header-right">
+    <a href="https://www.instagram.com/nasa_sobna_vrata/" target="_blank">
+      <img src="logoi/insta1.png" alt="Instagram">
+    </a>
+    <a href="viber://chat?number=%2B38163855510" target="_blank">
+      <img src="logoi/viber.png" alt="Viber">
+    </a>
+    <a href="https://www.facebook.com/aca.krstic.94?locale=sr_RS" target="_blank">
+      <img src="logoi/facebook.png" alt="Facebook">
+    </a>
+  </div>
+</header>
+
+<section class="hero" id="pocetna">
+  <h1>Kvalitetna Sobna Vrata</h1>
+  <p>Nudimo moderan dizajn i vrhunski kvalitet vrata.</p>
+  <a href="#proizvodi" class="btn"><b>POGLEDAJTE PONUDU</b></a>
+</section>
+
+<section id="proizvodi">
+  <h2>Tip Prostora</h2>
+  <div class="products" id="mainProducts">
+    <div class="product-item">
+      <div class="product-title"><b>KUĆA/STAN</b></div>
+      <img src="slike kuce/0176f549-eef3-4a32-8270-772fa5cbc891.png" onclick="prikaziModele('Kuca')">
+      <button class="btn" onclick="prikaziModele('Kuca')">POGLEDAJTE PONUDU</button>
+    </div>
+    <div class="product-item">
+      <div class="product-title"><b>POSLOVNI OBJEKAT</b></div>
+      <img src="slike kuce/dc1fc41e-ac5b-418c-9344-6420d0d09995.png" onclick="prikaziModele('Lokal')">
+      <button class="btn" onclick="prikaziModele('Lokal')">POGLEDAJTE PONUDU</button>
+    </div>
+    <div class="product-item">
+      <div class="product-title"><b>ZGRADA</b></div>
+      <img src="slike kuce/5fcf8b34-d97a-4ca2-b172-2ea6d71d6766.png" onclick="prikaziModele('Zgrada')">
+      <button class="btn" onclick="prikaziModele('Zgrada')">POGLEDAJTE PONUDU</button>
+    </div>
+  </div>
+
+  
+  <div class="extra-models" id="extraModelsKuca">
+    <h3>Modeli za Kuću</h3>
+    <div class="products">
+      <div class="product-item">
+        <div class="product-title"><b>Bela vrata</b></div>
+        <img src="modeli/bela 5 linije.png" onclick="prikaziPodModele('KucaA')"><br>
+        <button class="btn" onclick="prikaziPodModele('KucaA')">Pogledaj modele</button>
+      </div>
+      <div class="product-item">
+        <div class="product-title"><b>Furnirana vrata</b></div>
+        <img src="modeli/frunir slubica.png" onclick="prikaziPodModele('KucaB')"> <br>
+        <button class="btn" onclick="prikaziPodModele('KucaB')">Pogledaj modele</button>
+      </div>
+      <div class="product-item">
+        <div class="product-title"><b>Vrata sa staklom</b></div>
+        <img src="modeli/bela stako.png" onclick="prikaziPodModele('Kucac')"> <br>
+        <button class="btn" onclick="prikaziPodModele('Kucac')">Pogledaj modele</button>
+      </div>
+    </div>
+    <button class="btn" onclick="vratiNazad()">Nazad</button>
+  </div>
+  <div class="extra-models" id="extraModelsKucaA">
+    <h3>Bela vrata</h3>
+    <img src="modeli/bela 5 linije.png" onclick="otvoriLightbox(this.src)">
+    <img src="modeli/bela polukrug.png" onclick="otvoriLightbox(this.src)">
+    <img src="modeli/bela x.png" onclick="otvoriLightbox(this.src)">
+    <br>
+    <button class="btn" onclick="prikaziModele('Kuca')">Nazad</button>
+  </div>
+  <div class="extra-models" id="extraModelsKucaB">
+    <h3>Furnirana vrata</h3>
+    <img src="modeli/frunir slubica.png" onclick="otvoriLightbox(this.src)">
+    <img src="modeli/furnir polukrug.png" onclick="otvoriLightbox(this.src)"><br>
+    <button class="btn" onclick="prikaziModele('Kuca')">Nazad</button>
+  </div>
+<div class="extra-models" id="extraModelsKucac">
+    <h3>Vrata sa staklom</h3>
+    <img src="modeli/furnir staklo.png" onclick="otvoriLightbox(this.src)">
+    <img src="modeli/bela stako.png" onclick="otvoriLightbox(this.src)"><br>
+    <button class="btn" onclick="prikaziModele('Kuca')">Nazad</button>
+  </div>
+
+  <div class="extra-models" id="extraModelsLokal">
+  <h3>Modeli za poslovni objekat</h3>
+  <div class="products">
+    <div class="product-item">
+      <div class="product-title"><b>PEPCO</b></div>
+      <img src="modeli/pepco.jpg" onclick="otvoriLightbox(this.src)">
+    </div>
+    <div class="product-item">
+      <div class="product-title"><b>KAFIC</b></div>
+      <img src="modeli/FOKUS.jpg" onclick="otvoriLightbox(this.src)">
+    </div>
+    <div class="product-item">
+      <div class="product-title"><b>RESTORAN</b></div>
+      <img src="modeli/RESTORAN.jpg" onclick="otvoriLightbox(this.src)">
+    </div>
+  </div>
+  <button class="btn" onclick="vratiNazad()">Nazad</button>
+</div>
+
+<div class="extra-models" id="extraModelsZgrada">
+  <h3>Zgrade koje su opremljene nasim vratima</h3>
+  <div class="products">
+    <div class="product-item">
+      <div class="product-title"><b>NOVI SAD</b></div>
+      <img src="modeli/novisad1.jpg" onclick="otvoriLightboxZaZgradu(0)">
+    </div>
+  </div>
+  <button class="btn" onclick="vratiNazad()">Nazad</button>
+</div>
+
+<hr>
+
+<section id="o-nama">
+  <h2>O Nama</h2>
+  <p>Naša firma se specijalizovala za proizvodnju sobnih vrata od najkvalitetnijeg medijapana, farbanih vrhunskom Rener farbom koja garantuje dugotrajnost, otpornost i savršen izgled. Pored proizvodnje, pružamo i kompletnu uslugu montaže vrata na celoj teritoriji Srbije, uz poštovanje dogovorenih rokova i profesionalnu ugradnju. <BR>
+<br>
+
+Naš cilj je da spojimo kvalitet, funkcionalnost i moderan dizajn, kako bismo svakom domu ili poslovnom prostoru doneli vrata koja se savršeno uklapaju u enterijer. Zahvaljujući iskustvu, preciznoj izradi i pažljivo odabranim materijalima, stekli smo poverenje velikog broja zadovoljnih klijenata širom Srbije. <br>
+<br>
+
+Bilo da želite klasična bela vrata, furnirana vrata, vrata u boji ili modele sa staklom, kod nas možete pronaći rešenje koje će ispuniti sve Vaše estetske i praktične zahteve.</p>
+</section>
+
+<hr>
+
+<section id="kontakt">
+  <h2>Kontakt</h2>
+  <p><strong>Telefon:</strong> +381 63855510<br>
+     <strong>Email:</strong> nasavrata@gmail.com</p>
+  <a href="tel:+38163855510" class="btn">📞 Pozovite odmah</a>
+  <p>
+    <a href="viber://chat?number=%2B38163855510"><img src="logoi/viber.kontakt.png" alt="viber" width="250" height="90"></a>
+  </p>
+  <div style="margin-top:20px;">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2918.157444966823!2d22.12336501064531!3d42.996019171020514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47557181c42824a1%3A0x775536dcd96382b9!2sSSTR%20Kosnica!5e0!3m2!1ssr!2srs!4v1757341525846!5m2!1ssr!2srs" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Naša Sobna Vrata. Sva prava zadržana.
+</footer>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <span class="prev" onclick="promeniSliku(-1)">&#10094;</span>
+  <img id="lightboxImage" src="">
+  <span class="next" onclick="promeniSliku(1)">&#10095;</span>
+  <span class="close" onclick="zatvoriLightbox()">&times;</span>
+</div>
+
+<script>
+  function toggleMenu() {
+    document.querySelector('.nav-links').classList.toggle('active');
+  }
+
+  function prikaziModele(tip) {
+    document.getElementById('mainProducts').style.display = 'none';
+    const svi = [
+      'extraModelsKuca','extraModelsLokal','extraModelsZgrada',
+      'extraModelsKucaA','extraModelsKucaB','extraModelsKucac'
+    ];
+    svi.forEach(id => { 
+      if(document.getElementById(id)) document.getElementById(id).style.display='none'; 
+    });
+    if(document.getElementById('extraModels' + tip)) {
+      document.getElementById('extraModels' + tip).style.display='block';
+    }
+  }
+
+  function prikaziPodModele(tip) {
+    const svi = [
+      'extraModelsKuca','extraModelsLokal','extraModelsZgrada',
+      'extraModelsKucaA','extraModelsKucaB','extraModelsKucac'
+    ];
+    svi.forEach(id => { 
+      if(document.getElementById(id)) document.getElementById(id).style.display='none'; 
+    });
+    if(document.getElementById('extraModels' + tip)) {
+      document.getElementById('extraModels' + tip).style.display='block';
+    }
+  }
+
+  function vratiNazad() {
+    document.getElementById('mainProducts').style.display = 'grid';
+    const svi = [
+      'extraModelsKuca','extraModelsLokal','extraModelsZgrada',
+      'extraModelsKucaA','extraModelsKucaB', 'extraModelsKucac'
+    ];
+    svi.forEach(id => { 
+      if(document.getElementById(id)) document.getElementById(id).style.display='none'; 
+    });
+  }
+
+  // rotacija slika u hero
+  const slikePozadine = [
+    'slike/slika11.png',
+    'rotacija/258217b4-7e0c-4c8f-adc4-3fd5ac1eb9aa.png',
+    'rotacija/517692609_31328359386754900_3470453723530719303_n.jpg'
+  ];
+  let trenutnaSlika = 0;
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const hero = document.querySelector('.hero');
+    hero.style.backgroundImage = `url('${slikePozadine[0]}')`;
+
+    setInterval(() => {
+      trenutnaSlika = (trenutnaSlika + 1) % slikePozadine.length;
+      hero.style.opacity = 0;
+      setTimeout(() => {
+        hero.style.backgroundImage = `url('${slikePozadine[trenutnaSlika]}')`;
+        hero.style.opacity = 1;
+      }, 300);
+    }, 5000); 
+  });
+  function otvoriLightbox(src) {
+  document.getElementById("lightboxImage").src = src;
+  document.getElementById("lightbox").style.display = "flex";
+  slikeGalerija = []; // prazno jer nema galerije
+}
+
+  // LIGHTBOX SAMO ZA ZGRADA
+  let slikeGalerija = [];
+  let trenutnaSlikaIndex = 0;
+
+  function otvoriLightboxZaZgradu(index) {
+    slikeGalerija = [
+      "modeli/novisad1.jpg",
+      "modeli/novisad2.jpg",
+      "modeli/novi sad.jpg",
+      
+    ];
+    trenutnaSlikaIndex = index;
+    document.getElementById("lightboxImage").src = slikeGalerija[trenutnaSlikaIndex];
+    document.getElementById("lightbox").style.display = "flex";
+  }
+
+  function promeniSliku(smer) {
+    trenutnaSlikaIndex += smer;
+    if (trenutnaSlikaIndex < 0) trenutnaSlikaIndex = slikeGalerija.length - 1;
+    if (trenutnaSlikaIndex >= slikeGalerija.length) trenutnaSlikaIndex = 0;
+    document.getElementById("lightboxImage").src = slikeGalerija[trenutnaSlikaIndex];
+  }
+
+  function zatvoriLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+  }
+  function toggleMenu() {
+  document.querySelector('.nav-links').classList.toggle('active');
+}
+</script>
+
+
+
+</body>
+</html>
