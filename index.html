@@ -34,15 +34,12 @@
     padding: 8px 14px;
     border-radius: 6px;
     transition: 0.3s;
-    
   }
   nav a:hover { background:#1976d2; }
   .header-right a img {
     width: 36px; height: 36px;
     margin-left: 10px;
     transition: 0.3s;
-    padding-right:16px;
-    
   }
   .header-right a img:hover { transform: scale(1.1); }
   .burger { display: none; font-size: 30px; cursor: pointer; color: #fff; }
@@ -58,6 +55,7 @@
     padding: 40px;
     text-align: center;
     color: #fff;
+    transition: background-image 1s ease-in-out;
   }
   .hero::before {
     content: ""; position: absolute;
@@ -195,7 +193,7 @@
 
 <header>
   <div class="header-left">
-    <a href="#pocetna"><img src="Nasa sobna vrata1/slike/0c47fc41-0f40-49c4-99db-0ee1f3bab1d8.png" alt="Logo"></a>
+    <a href="#pocetna"><img src="slike/0c47fc41-0f40-49c4-99db-0ee1f3bab1d8.png" alt="Logo"></a>
   </div>
   <div class="burger" onclick="toggleMenu()">☰</div>
   <nav class="nav-links">
@@ -206,11 +204,10 @@
   </nav>
   <div class="header-right">
     <a href="https://www.instagram.com/nasa_sobna_vrata/" target="_blank">
-      <img src="Nasa sobna vrata1/logoi/insta1.png" alt="Instagram">
+      <img src="logoi/insta1.png" alt="Instagram">
     </a>
-
     <a href="https://www.facebook.com/aca.krstic.94?locale=sr_RS" target="_blank">
-      <img src="Nasa sobna vrata1/logoi/facebook.png" alt="Facebook", margin-padding="10px">
+      <img src="logoi/facebook.png" alt="Facebook">
     </a>
   </div>
 </header>
@@ -226,17 +223,17 @@
   <div class="products" id="mainProducts">
     <div class="product-item">
       <div class="product-title"><b>KUĆA/STAN</b></div>
-      <img src="Nasa sobna vrata1/slike kuce/0176f549-eef3-4a32-8270-772fa5cbc891.png" onclick="prikaziModele('Kuca')">
+      <img src="slike kuce/0176f549-eef3-4a32-8270-772fa5cbc891.png" onclick="prikaziModele('Kuca')">
       <button class="btn" onclick="prikaziModele('Kuca')">POGLEDAJTE PONUDU</button>
     </div>
     <div class="product-item">
       <div class="product-title"><b>POSLOVNI OBJEKAT</b></div>
-      <img src="Nasa sobna vrata1/slike kuce/dc1fc41e-ac5b-418c-9344-6420d0d09995.png" onclick="prikaziModele('Lokal')">
+      <img src="slike kuce/dc1fc41e-ac5b-418c-9344-6420d0d09995.png" onclick="prikaziModele('Lokal')">
       <button class="btn" onclick="prikaziModele('Lokal')">POGLEDAJTE PONUDU</button>
     </div>
     <div class="product-item">
       <div class="product-title"><b>ZGRADA</b></div>
-      <img src="Nasa sobna vrata1/slike kuce/5fcf8b34-d97a-4ca2-b172-2ea6d71d6766.png" onclick="prikaziModele('Zgrada')">
+      <img src="slike kuce/5fcf8b34-d97a-4ca2-b172-2ea6d71d6766.png" onclick="prikaziModele('Zgrada')">
       <button class="btn" onclick="prikaziModele('Zgrada')">POGLEDAJTE PONUDU</button>
     </div>
   </div>
@@ -247,17 +244,17 @@
     <div class="products">
       <div class="product-item">
         <div class="product-title"><b>Bela vrata</b></div>
-        <img src="Nasa sobna vrata1/modeli/bela 5 linije.png" onclick="prikaziPodModele('KucaA')"><br>
+        <img src="modeli/bela 5 linije.png" onclick="prikaziPodModele('KucaA')"><br>
         <button class="btn" onclick="prikaziPodModele('KucaA')">Pogledaj modele</button>
       </div>
       <div class="product-item">
         <div class="product-title"><b>Furnirana vrata</b></div>
-        <img src="Nasa sobna vrata1/modeli/frunir slubica.png" onclick="prikaziPodModele('KucaB')"> <br>
+        <img src="modeli/frunir slubica.png" onclick="prikaziPodModele('KucaB')"> <br>
         <button class="btn" onclick="prikaziPodModele('KucaB')">Pogledaj modele</button>
       </div>
       <div class="product-item">
         <div class="product-title"><b>Vrata sa staklom</b></div>
-        <img src="Nasa sobna vrata1/modeli/bela stako.png" onclick="prikaziPodModele('Kucac')"> <br>
+        <img src="modeli/bela stako.png" onclick="prikaziPodModele('Kucac')"> <br>
         <button class="btn" onclick="prikaziPodModele('Kucac')">Pogledaj modele</button>
       </div>
     </div>
@@ -265,22 +262,22 @@
   </div>
   <div class="extra-models" id="extraModelsKucaA">
     <h3>Bela vrata</h3>
-    <img src="Nasa sobna vrata1/modeli/bela 5 linije.png" onclick="otvoriLightbox(this.src)">
-    <img src="Nasa sobna vrata1/modeli/bela polukrug.png" onclick="otvoriLightbox(this.src)">
-    <img src="Nasa sobna vrata1/modeli/bela x.png" onclick="otvoriLightbox(this.src)">
+    <img src="modeli/bela 5 linije.png" onclick="otvoriLightbox(this.src)">
+    <img src="modeli/bela polukrug.png" onclick="otvoriLightbox(this.src)">
+    <img src="modeli/bela x.png" onclick="otvoriLightbox(this.src)">
     <br>
     <button class="btn" onclick="prikaziModele('Kuca')">Nazad</button>
   </div>
   <div class="extra-models" id="extraModelsKucaB">
     <h3>Furnirana vrata</h3>
-    <img src="Nasa sobna vrata1/modeli/frunir slubica.png" onclick="otvoriLightbox(this.src)">
-    <img src="Nasa sobna vrata1/modeli/furnir polukrug.png" onclick="otvoriLightbox(this.src)"><br>
+    <img src="modeli/frunir slubica.png" onclick="otvoriLightbox(this.src)">
+    <img src="modeli/furnir polukrug.png" onclick="otvoriLightbox(this.src)"><br>
     <button class="btn" onclick="prikaziModele('Kuca')">Nazad</button>
   </div>
 <div class="extra-models" id="extraModelsKucac">
     <h3>Vrata sa staklom</h3>
-    <img src="Nasa sobna vrata1/modeli/furnir staklo.png" onclick="otvoriLightbox(this.src)">
-    <img src="Nasa sobna vrata1/modeli/bela stako.png" onclick="otvoriLightbox(this.src)"><br>
+    <img src="modeli/furnir staklo.png" onclick="otvoriLightbox(this.src)">
+    <img src="modeli/bela stako.png" onclick="otvoriLightbox(this.src)"><br>
     <button class="btn" onclick="prikaziModele('Kuca')">Nazad</button>
   </div>
 
@@ -289,15 +286,15 @@
   <div class="products">
     <div class="product-item">
       <div class="product-title"><b>PEPCO</b></div>
-      <img src="Nasa sobna vrata1/modeli/pepco.jpg" onclick="otvoriLightbox(this.src)">
+      <img src="modeli/pepco.jpg" onclick="otvoriLightbox(this.src)">
     </div>
     <div class="product-item">
       <div class="product-title"><b>KAFIC</b></div>
-      <img src="Nasa sobna vrata1/modeli/FOKUS.jpg" onclick="otvoriLightbox(this.src)">
+      <img src="modeli/FOKUS.jpg" onclick="otvoriLightbox(this.src)">
     </div>
     <div class="product-item">
       <div class="product-title"><b>RESTORAN</b></div>
-      <img src="Nasa sobna vrata1/modeli/RESTORAN.jpg" onclick="otvoriLightbox(this.src)">
+      <img src="modeli/RESTORAN.jpg" onclick="otvoriLightbox(this.src)">
     </div>
   </div>
   <button class="btn" onclick="vratiNazad()">Nazad</button>
@@ -308,7 +305,7 @@
   <div class="products">
     <div class="product-item">
       <div class="product-title"><b>NOVI SAD</b></div>
-      <img src="Nasa sobna vrata1/modeli/novisad1.jpg" onclick="otvoriLightboxZaZgradu(0)">
+      <img src="modeli/novisad1.jpg" onclick="otvoriLightboxZaZgradu(0)">
     </div>
   </div>
   <button class="btn" onclick="vratiNazad()">Nazad</button>
@@ -332,13 +329,11 @@ Bilo da želite klasična bela vrata, furnirana vrata, vrata u boji ili modele s
 <section id="kontakt">
   <h2>Kontakt</h2>
   <p><strong>Telefon:</strong> +381 63855510<br>
-     <strong>Email:nasavrata@gmail.com</strong>
-<a href="tel:+381638455510" class="btn":>Pozovi odmah📞</a>
-  
-
-
-
-  
+     <strong>Email:</strong> nasavrata@gmail.com</p>
+  <a href="tel:+38163855510" class="btn">📞 Pozovite odmah</a>
+  <p>
+    <a href="viber://chat?number=%2B38163855510"><img src="logoi/viber.kontakt.png" alt="viber" width="250" height="90"></a>
+  </p>
   <div style="margin-top:20px;">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2918.157444966823!2d22.12336501064531!3d42.996019171020514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47557181c42824a1%3A0x775536dcd96382b9!2sSSTR%20Kosnica!5e0!3m2!1ssr!2srs!4v1757341525846!5m2!1ssr!2srs" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
@@ -399,11 +394,10 @@ Bilo da želite klasična bela vrata, furnirana vrata, vrata u boji ili modele s
     });
   }
 
-  // rotacija slika u hero
   const slikePozadine = [
-    'Nasa sobna vrata1/slike/slika11.png',
-    'Nasa sobna vrata1/rotacija/258217b4-7e0c-4c8f-adc4-3fd5ac1eb9aa.png',
-    'Nasa sobna vrata1/rotacija/517692609_31328359386754900_3470453723530719303_n.jpg'
+    'slike/slika11.png',
+    'rotacija/258217b4-7e0c-4c8f-adc4-3fd5ac1eb9aa.png',
+    'rotacija/517692609_31328359386754900_3470453723530719303_n.jpg'
   ];
   let trenutnaSlika = 0;
 
@@ -412,13 +406,9 @@ Bilo da želite klasična bela vrata, furnirana vrata, vrata u boji ili modele s
     hero.style.backgroundImage = `url('${slikePozadine[0]}')`;
 
     setInterval(() => {
-      trenutnaSlika = (trenutnaSlika + 1) % slikePozadine.length;
-      hero.style.opacity = 0;
-      setTimeout(() => {
-        hero.style.backgroundImage = `url('${slikePozadine[trenutnaSlika]}')`;
-        hero.style.opacity = 1;
-      }, 0);
-    }, 5000); 
+  trenutnaSlika = (trenutnaSlika + 1) % slikePozadine.length;
+  hero.style.backgroundImage = `url('${slikePozadine[trenutnaSlika]}')`;
+}, 5000);
   });
   function otvoriLightbox(src) {
   document.getElementById("lightboxImage").src = src;
@@ -426,15 +416,14 @@ Bilo da želite klasična bela vrata, furnirana vrata, vrata u boji ili modele s
   slikeGalerija = []; // prazno jer nema galerije
 }
 
-  // LIGHTBOX SAMO ZA ZGRADA
   let slikeGalerija = [];
   let trenutnaSlikaIndex = 0;
 
   function otvoriLightboxZaZgradu(index) {
     slikeGalerija = [
-      "Nasa sobna vrata1/modeli/novisad1.jpg",
-      "Nasa sobna vrata1/modeli/novisad2.jpg",
-      "Nasa sobna vrata1/modeli/novi sad.jpg",
+      "modeli/novisad1.jpg",
+      "modeli/novisad2.jpg",
+      "modeli/novi sad.jpg",
       
     ];
     trenutnaSlikaIndex = index;
